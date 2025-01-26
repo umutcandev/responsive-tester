@@ -13,6 +13,8 @@ import { Smartphone, Tablet, Monitor, RotateCw, Ruler, Plus, Laptop } from "luci
 import { ThemeSwitcher } from "@/components/ui/theme-switcher"
 import { Spinner } from "@/components/ui/spinner"
 import Link from "next/link"
+import { registerServiceWorker } from './register-sw'
+import { PWAInstallButton } from "@/components/ui/pwa-install-button"
 
 // Önceden tanımlanmış cihaz boyutları
 const devicePresets = {
@@ -60,6 +62,10 @@ export default function Home() {
   const [activeAccordion, setActiveAccordion] = useState<string | undefined>()
   const previewRef = useRef<HTMLDivElement>(null)
   const [windowWidth, setWindowWidth] = useState(1200)
+
+  useEffect(() => {
+    registerServiceWorker()
+  }, [])
 
   useEffect(() => {
     // İlk render'da window genişliğini ayarla
@@ -147,7 +153,10 @@ export default function Home() {
             <Laptop className="h-5 w-5" />
             <h1 className="text-xl font-semibold">Responsive Tester</h1>
           </Link>
-          <ThemeSwitcher />
+          <div className="flex items-center gap-2">
+            <PWAInstallButton />
+            <ThemeSwitcher />
+          </div>
         </div>
       </header>
 
