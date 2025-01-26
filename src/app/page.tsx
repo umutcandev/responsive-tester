@@ -9,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Smartphone, Tablet, Monitor, RotateCw, Ruler, ExternalLink, Plus, Laptop } from "lucide-react"
+import { Smartphone, Tablet, Monitor, RotateCw, Ruler, Plus, Laptop } from "lucide-react"
 import { ThemeSwitcher } from "@/components/ui/theme-switcher"
 import { Spinner } from "@/components/ui/spinner"
 import Link from "next/link"
