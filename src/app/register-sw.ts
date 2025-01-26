@@ -1,6 +1,11 @@
+interface Workbox {
+  addEventListener: (event: string, callback: (event: Event) => void) => void;
+  register: () => Promise<void>;
+}
+
 declare global {
   interface Window {
-    workbox: any;
+    workbox: Workbox;
   }
 }
 
